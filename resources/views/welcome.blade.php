@@ -1,5 +1,26 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">Image d'avatar
+Laravel_partie 1: Concevoir une application de gestion des examens de A à Z
+
+Ronasdev
+3,21 k abonnés
+
+Abonné
+
+97
+
+
+Partager
+
+5,5 k vues  il y a 1 an
+N'oubliez pas de vous abonner et de aimer la vidéo si elle vous a plu.
+
+Code source sur la partie 2 de la vidéo …
+    
+
+La rediffusion du chat a été désactivée pour cette Première.
+
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
