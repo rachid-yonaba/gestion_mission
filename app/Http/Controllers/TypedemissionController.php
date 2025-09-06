@@ -21,10 +21,19 @@ class TypedemissionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type' => 'required|in:Externe,Interne|unique:type_de_missions,type',
+            'type' => [
+                'required',
+                'string',
+                function ($attribute, $value, $fail) {
+                    if (Typedemission::where('type', $value)->exists()) {
+                        $fail("Ce type de mission existe déjà : " . $value);
+                    }
+                },
+            ],
         ]);
 
-        Typedemission::create($request->all());
+        Typedemission::create($request->only('type'));
+
         return redirect()->route('type_de_missions.index')->with('success', 'Type de mission ajouté.');
     }
 
@@ -36,10 +45,21 @@ class TypedemissionController extends Controller
     public function update(Request $request, Typedemission $type_de_mission)
     {
         $request->validate([
-            'type' => 'required|in:Externe,Interne|unique:type_de_missions,type,' . $type_de_mission->id,
+            'type' => [
+                'required',
+                'string',
+                function ($attribute, $value, $fail) use ($type_de_mission) {
+                    if (Typedemission::where('type', $value)
+                        ->where('id', '!=', $type_de_mission->id)
+                        ->exists()) {
+                        $fail("Ce type de mission existe déjà : " . $value);
+                    }
+                },
+            ],
         ]);
 
-        $type_de_mission->update($request->all());
+        $type_de_mission->update($request->only('type'));
+
         return redirect()->route('type_de_missions.index')->with('success', 'Type de mission mis à jour.');
     }
 

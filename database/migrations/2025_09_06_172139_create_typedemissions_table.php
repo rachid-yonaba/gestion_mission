@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('typedemissions', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['Externe', 'Interne'])->unique();
+            $table->string('type'); 
             $table->timestamps();
         });
     }
@@ -26,4 +26,3 @@ return new class extends Migration
         Schema::dropIfExists('typedemissions');
     }
 };
-

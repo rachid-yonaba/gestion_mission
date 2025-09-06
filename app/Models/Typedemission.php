@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Typedemission extends Model
 {
-    
-     use HasFactory;
+    use HasFactory;
+
+    protected $table = 'typedemissions';
 
     protected $fillable = ['type'];
 }
