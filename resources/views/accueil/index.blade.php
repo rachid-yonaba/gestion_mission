@@ -14,7 +14,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Personnels</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{route('personnel')}}">Voir Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('personnels')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -23,7 +23,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Clients</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Voir Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('clients.index')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

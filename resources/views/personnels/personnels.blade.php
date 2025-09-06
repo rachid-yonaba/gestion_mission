@@ -29,6 +29,7 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                           <th>Id</th>
                             <th>Nom</th>
                             <th>Prénom</th>
                             <th>Service</th>
@@ -40,22 +41,30 @@
                     </thead>
                     <tbody>
                         @foreach($personnels as $personnel)
-                        <tr>
+                        <tr> 
+                            <td>{{ $personnel->id }}</td>
                             <td>{{ $personnel->nom }}</td>
                             <td>{{ $personnel->prenom }}</td>
                             <td>{{ $personnel->service }}</td>
                             <td>{{ $personnel->fonction }}</td>
                             <td>{{ $personnel->telephone }}</td>
                             <td>{{ $personnel->email }}</td>
-                            <td>
-                                <a href="{{ route('personnels.edit', $personnel->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                            <td class="text-center">
+    <!-- Bouton Modifier -->
+    <a href="{{ route('personnels.edit', $personnel->id) }}" class="btn btn-warning btn-sm" title="Modifier">
+        <i class="fas fa-edit"></i>
+    </a>
 
-                                <form action="{{ route('personnels.destroy', $personnel->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer ce personnel ?')">Supprimer</button>
-                                </form>
-                            </td>
+    <!-- Bouton Supprimer -->
+    <form action="{{ route('personnels.destroy', $personnel->id) }}" method="POST" style="display:inline;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger btn-sm" title="Supprimer" onclick="return confirm('Voulez-vous vraiment supprimer ce personnel ?')">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </form>
+</td>
+
                         </tr>
                         @endforeach
                     </tbody>
