@@ -6,6 +6,7 @@ use App\Http\Controllers\PersonnelController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ConsultantController;
 use App\Http\Controllers\TypedemissionController;
+use App\Http\Controllers\MissionController;
 
 
 
@@ -52,3 +53,7 @@ Route::post('type_de_missions', [TypedemissionController::class, 'store'])->name
 Route::get('type_de_missions/{type_de_mission}/edit', [TypedemissionController::class, 'edit'])->name('type_de_missions.edit');
 Route::put('type_de_missions/{type_de_mission}', [TypedemissionController::class, 'update'])->name('type_de_missions.update');
 Route::delete('type_de_missions/{type_de_mission}', [TypedemissionController::class, 'destroy'])->name('type_de_missions.destroy');
+
+
+//Routes gestion mission
+Route::resource('missions', MissionController::class);
