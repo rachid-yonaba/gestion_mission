@@ -9,25 +9,38 @@ class Mission extends Model
 {
     use HasFactory;
 
-    protected $table = 'missions';
-
     protected $fillable = [
-        'Description',
-        'type',
-        'chef',
+        'code',
+        'libelle',
+        'description',
+        'chef_mission',
+        'personnel_id',
+        'client_id',
+        'consultant_id',
+        'typedemission_id',
         'budget',
         'datedebut',
         'datefin',
         'commentaire',
-        'NomResponsable',
-        'FontionResponsable',
-        'NomClient',
-        'NomConsultant',
-        'Nbreemployé',
-        'Adresse',
-        'téléphone',
+        'nbre_employe',
         'resultat',
-        'Nbremois',
-        'Libell',
+        'nbre_mois',
     ];
+
+    // Relations
+    public function personnel() {
+        return $this->belongsTo(Personnel::class);
+    }
+
+    public function client() {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function consultant() {
+        return $this->belongsTo(Consultant::class);
+    }
+
+    public function typedemission() {
+        return $this->belongsTo(Typedemission::class);
+    }
 }
